@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<% const data = cohort %>
+    <div class="card mb-4"style="margin:30px;">
+        <div class="card-body container"> 
+            <h4 class="card-title"><%= data.name %></h4>
+            <p class="card-text"><%= data.members %></p>
+            <hr>
+            <p>Method</p>
+            <form action="cohort/<%= data.id %>" method="POST">
+                <div class="radio">
+                    <input type="radio" id="count" name="count" value="team_count">
+                    <label for="male">Team Count</label><br>
+                    
+                    <input type="radio"  id="num_per_team" name="num_per_team" value="number_per_team">
+                    <label for="female">Number Per Team</label><br>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" min='1' max='6' required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" value="Assign Teams" class="form-control" class="btn btn-outline-primary">
+                </div>
+            </form>
+            <div>
+                <ol  start="0" class="list-group list-group-flush">
+                    <li class="list-group-item"># <span>Members</span></li>
+
+                    <li class="list-group-item"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+
+
+<%- include('../partials/footer') %>

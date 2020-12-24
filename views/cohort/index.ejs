@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<% for (let value of cohort) {%>
+<div class="card mb-4"style="margin:30px;">
+    <div class="card-body container">
+        <img class="rounded-circle" src="<%= value.logo_url %>" width="50" height="50">
+        <span class="card-title"><%= value.name %></span>
+        <p class="card-text"><%= value.members %></p>
+        <div>
+            <a  class= "btn btn-primary" href="/cohort/<%= value.id %>">Show cohort</a>
+        </div>
+    </div>
+</div>
+<% } %>
+<%- include('../partials/footer') %>

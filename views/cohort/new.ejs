@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form action="/new" method="POST" style="margin:30px;">
+    <div class="form-group">
+        <label for="logo_url">Logo Url</label>
+        <input type='url' class ="form-control" id="logo_url" name="logo_url" placeholder="e.g. https://www.example.com/some.png" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class ="form-control" id="name" name="name" placeholder="Flying Funks" autocomplete="off" autocapitalize="off"  spellcheck="false" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="members">Members</label>
+        <textarea class ="form-control" id="members" name="members" cols="60" rows="5" placeholder="Jon Snow, Daenerys, Melisandre, Arya Stark" autocomplete="off" autocapitalize="off"  spellcheck="false" required></textarea>
+    </div>
+    <br>
+    
+        <input type="submit" value="Submit" class="btn btn-outline-primary" style="float:right;">
+</form>
+
+<%- include('../partials/footer') %>
