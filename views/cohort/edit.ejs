@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+  <form action='/<%= cohort.id %>' method='POST' style="margin: 15px 120px 10px 120px;"> 
+    <input type='hidden' name='_method' value='PATCH'> <!--override method-->
+    <%- include('./partials/formInputs') %>
+    <input type='submit' value='Save' class='btn btn-outline-success' style="float:right;">
+  </form>
+
+<%- include('../partials/footer') %>

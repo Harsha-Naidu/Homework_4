@@ -8,6 +8,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 const logger = require('morgan');
 app.set('view engine', 'ejs'); 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(methodOverride((req, res) => {
+  if (req.body && req.body._method) {
+    const method = req.body._method;
+    return method; 
+  }
+}))
+
 app.use(cookieParser()); 
 app.use(logger('dev')); 
 const knex = require('./db/client');
