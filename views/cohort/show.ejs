@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+
+<% if(cohort) { %>
+    <div class="card" style="margin: 15px 120px 10px 120px;">
+        <div class="card-body container"> 
+            <h4 class="card-title"><%= cohort.name %></h4>
+            <p class="card-text"><%= cohort.members %></p>
+            <hr>
+            <p>Method</p>
+            <form action="/cohort/<%= cohort.id %>" method="POST">
+                <div>
+                    <input type="radio" id="count" name="team_split" value="team_count" >
+                    <label for="count">Team Count</label><br>
+                    
+                    <input type="radio"  id="num_per_team" name="team_split" value="number_per_team" > 
+                    <label for="num_per_team">Number Per Team</label><br>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" min='1' max='6' required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" value="Assign Teams" class="form-control btn btn-outline-primary">
+                </div>
+            </form>
+            
+            <div>
+                <% if(teamSplit) { %>
+                <ol start ="0" class="list-group list-group-flush">
+                    <li class="list-group-item header">
+                        <span> #  </span> 
+                        <span> Members </span>
+                    </li>
+                    <% for( let i=0; i < teamSplit.length; i++) { %>
+                    <li class="list-group-item"><%= teamSplit[i] %></li> 
+                    <% } %>         
+                </ol>
+               <% } %>
+            </div>  
+
+            <a href="/<%= cohort.id %>/edit" class="btn btn-outline-success form-control">Edit Cohort</a>
+            <br>
+            <br>
+            <form action="/<%= cohort.id %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" class="btn btn-outline-danger form-control" value="Delete Cohort">
+            </form>
+
+        </div>
+    </div>
+    
+<% } %>
+
+<%- include('../partials/footer') %>
